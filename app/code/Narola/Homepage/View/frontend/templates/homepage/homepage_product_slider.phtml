@@ -1,0 +1,91 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
+
+<?php
+if($block->getGeneralConfig() == 1):
+	$productCollection = $block->getProductCollection();
+	$imageBlock =  $block->getLayout()->createBlock('Magento\Catalog\Block\Product\ListProduct');
+	?>
+	 <div class="row custom-max">
+	        <div class="large-12 columns">
+	        	<h3 class="section-title padding-right">Our Featured Products</h3>
+	          <div class="owl-carousel owl-theme">
+	          	<?php foreach ($productCollection as $product) { ?>
+	          	<?php $productImage = $imageBlock->getImage($product, 'category_page_grid');   ?>
+	          	 <div class="item">
+	          	 	<div class="products-grid grid" >
+	             		<a href="<?php echo $product->getProductUrl(); ?>">
+							<?php echo $productImage->toHtml()  ?>
+					    </a>
+					</div>
+					<div class="product-item-details">
+					    	<strong class="product-item-name" >
+					    		<a class="product-item-link"  href="<?php echo $product->getProductUrl(); ?>">
+						    		<?php echo $product->getName(); ?>
+					    		</a>
+					    	</strong>
+				    	<div class="price-box price-final_price" >
+							<span class="price-container price-final_price tax weee" >
+					   			<span id="old-price-46-widget-product-grid" class="price-wrapper" >
+					   				<span class="price">
+					   					<?php $price = $product->getPrice();
+					   					$price = number_format($price, 2, '.', '');
+					   					$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+										$currencysymbol = $objectManager->get('Magento\Directory\Model\Currency');
+										echo $currencysymbol->getCurrencySymbol().$price;
+					    				?>
+					   				</span>
+					   			</span>
+					   		</span>
+					   	</div>
+					</div>
+	            </div>
+	            
+	             <?php } ?>
+	          </div>
+	      	</div>
+	</div>
+	<script type="text/javascript">
+	            jQuery(document).ready(function() {
+	              var owl = jQuery('.owl-carousel');
+        owl.owlCarousel({        
+            lazyLoad: true,
+            navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+    		dots: false,
+            responsive:{
+		        0:{
+		            items: <?php echo $block->getSlider0Config(); ?>,
+		            nav:true
+		        },
+		        320:{
+		            items: <?php echo $block->getSlider320Config(); ?>,
+		            nav:true
+		        },
+		        480:{
+		            items: <?php echo $block->getSlider480Config(); ?>,
+		            nav:true
+		        },
+		        768:{
+		            items: <?php echo $block->getSlider768Config(); ?>,
+		            nav:false
+		        },
+		        960:{
+		            items: <?php echo $block->getSlider960Config(); ?>,
+		            nav:false
+		        },
+		        1280:{
+		            items: <?php echo $block->getSlider1280Config(); ?>,
+		            nav:true		            
+		        }
+		    }		    
+        }); //end: owl
+    });
+	</script>
+	<style type="text/css">
+		/*.main-container-full .row.custom-max{max-width: 100%;}
+		.main-container-full .owl-nav{position: absolute;}
+		.main-container-full .owl-nav{top: 50%;left: -35px;}
+		.main-container-full .owl-prev{position: absolute; top: 50%; margin-top: -50px; right:-35px;}
+		.main-container-full .owl-next{ position: absolute; top: 50%; margin-top: -50px; right:-35px;}*/
+	</style>
+<?php
+endif;

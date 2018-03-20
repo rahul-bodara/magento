@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="narola" translate="label" sortOrder="1">
+            <label>Narola</label>
+        </tab>
+        <section id="productfeed" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Products Feed</label>
+            <tab>narola</tab>
+            <resource>Narola_Homepage::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Products Feed</label>
+              <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+              <field id="count" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>How many product in slider ?</label>                    
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="slider_0" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>How many product shown in slider ? (0)</label>                    
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="slider_320" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>How many product shown in slider ? (320)</label>                    
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="slider_480" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>How many product shown in slider ? (480)</label>                    
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="slider_768" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>How many product shown in slider ? (768)</label>                    
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="slider_960" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>How many product shown in slider ? (960)</label>                    
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="slider_1280" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>How many product shown in slider ? (1280)</label>                    
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>                
+            </group>
+        </section>
+    </system>
+</config>
