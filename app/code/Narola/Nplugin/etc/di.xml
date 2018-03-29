@@ -1,0 +1,5 @@
+<config>
+    <type name="Narola\Nplugin\Controller\Index\Narolaplugin">
+        <plugin name="Narola_Nplugin_Plugin" type="Narola\Nplugin\Plugin\NarolaPlugin" sortOrder="1" disabled="false"/>
+    </type>
+</config>
